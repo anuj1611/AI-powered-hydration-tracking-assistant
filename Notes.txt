@@ -1,0 +1,187 @@
+PROJECT DESCRIPTION:-
+
+We are making a hydration tracking assistant using FastAPI, Langchain and Streamlit.
+
+GOAL OF PROJECT:- Allow tracking of water intake while getting intelligent feedback from an AI assistant.
+
+Backend is built with fastAPI that logs water intake and stores in SQLite DB.
+We have integrated OpenAI langchain with our SQLite database that generates personalised feedback based on how much water the user has consumed. 
+We have used streamlit to make a dashboard where users can log their water intake, view their water intake history and view visualisations.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+STEPS:-
+
+1) Created a directory structure
+2) Created a virtual environment
+3) Wrote requirements.txt, .env, logger.py, agent.py, database.py file
+4) Tried testing our model using the test code written in model.py file and got an error then fixed it (details given in problems sections)
+5) Tested agent.py file again, it worked
+6) ran database.py file and a SQLite database was created.
+7) Created backend API
+8) tested the backend using "uvicorn src.api:app --reload" command. remember to append "/docs" at end of url
+9) Tested both POST and Get methods of the API/
+10) Create the frontend using streamlit. filename:-dashboard.py
+11) Create two different terminals. run the API server in one terminal using this command:- "uvicorn src.api:app --reload". Run streamlit dashboard in another terminal using "Streamlit run dashboard.py" command. Note that the second terminal in which we will run dashboard.py will have conda base environment. We will deactivate it and use our normal environment that we created earlier.
+12) test the streamlit frontend
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+GENERAL QUESTIONS:-
+1) Difference between SQLite and SQLalchemy
+2) Why did we create a virtual environmemt?
+3) Why did we use SQLite only specifically?
+4) Why did we close the connection after making it in database.py file
+5) why did we use two different terminals while testing the frontend
+6) What is streamlit
+------------------------------------------------------------------------------------------------------------------------------------------------------
+NOTES:-
+
+we can use anaconda navigator to create an environment or we can use python venv module
+
+command to create an environment in conda:-
+
+# To create the environment
+conda create --water_intake_tracker python=3.12
+
+#To activate the environment
+conda activate --water_intake_tracker 
+
+Commands to create and activate the environment using python venv module:-
+
+# To create the environment:-
+python -m venv water_intake_tracker
+
+# To activate the environment in windows
+water_intake_tracker\Scripts\activate
+
+
+# To activate the environment in Linux
+source water_intake_tracker/bin/activate
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+PROBLEMS AND THEIR SOLUTIONS:-
+
+
+Problem 1:-
+Got error while using python 3.12. Was trying to install requirements.txt using python 3.12 and got error.
+
+
+Conclusion:-
+Most AI/ML libraries don’t yet provide stable wheels for Python 3.13. Python 3.12 offers better compatibility with NumPy, LangChain, and FastAPI.
+Versioning issue. Python 3.12 provides better ecosystem stability.
+
+
+Fix:-
+Delete the current virtual environment, command:- "rmdir /s /q water_intake_tracker". Since the current virtual environment is using python3.13 which is the latest version, we must delete it.
+Install python 3.12
+Make a new virtual environment using python 3.12. Now work in this virtual environment, try installing requirements.txt in this environment and performing all the subsequent tasks.
+
+
+
+
+
+Problem 2:-
+I tried testing my agent using the code which is included in agent.py but got the following error:-
+ModuleNotFoundError: No module named 'langchain_openai'
+
+
+Conclusion:-
+This means Python cannot find the langchain_openai package inside your virtual environment.
+langchain_openai is a separate package
+It is NOT included automatically when you install langchain
+
+Fix:-
+pip install langchain-openai
+
+
+Problem 3:-
+Keeping the OpenAI API Key as secret and not accidentally exposing it to public.
+
+
+
+Problem 4:-
+Had Payment issue. Tried testing agent.py file, everything was working but i was getting error. 
+
+Conclusion:-
+Learned that OpenAI no longer provides free credits for using APIs. Had to enter my credit card details first to buy credits. Didn't have a credit card at that time so had to ask my uncle for a credit card. 
+
+Fix:-
+Had to pay 532 rupees/ 5 dollar (including tax) first, to use the API key
+
+
+Problem 5:-
+SQLite parameter binding error in GET API
+
+Problem:-
+The GET /history/{user_id} API endpoint returned: "sqlite3.ProgrammingError: Incorrect number of bindings supplied"
+
+
+Conclusion:
+In Python, (user_id) is not a tuple.
+When user_id is a string (e.g., "user_1"), SQLite treats each character as a separate binding (u, s, e, r, _, 1 → 6 bindings).
+
+this method in database.py was causing error:-
+def get_intake_history(user_id):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT intake_ml, date FROM water_intake WHERE user_id = ?",
+        (user_id,)
+    )
+
+    records = cursor.fetchall()
+    conn.close()
+    return records
+
+
+Fix:-
+Converted the parameter into a single-element tuple by adding a trailing comma:
+
+cursor.execute(
+    "SELECT intake_ml, date FROM water_intake WHERE user_id = ?",
+    (user_id,)
+)
+
+
+This ensured SQLite received exactly one binding, resolving the error.
+
+
+
+Problem 6:-
+Streamlit dashboard failed due to Python environment mismatch
+While running the Streamlit dashboard (dashboard.py), the application crashed with the following error:
+ModuleNotFoundError: No module named 'langchain_openai'
+
+
+Conclusion:-
+This happened even though the same module was already installed and working correctly in the FastAPI backend.
+The issue was caused due to following reasons:-
+FastAPI was running inside the project’s virtual environment (venv)
+Streamlit was executed from Anaconda’s base environment
+As a result, Streamlit used a different Python interpreter that did not have langchain_openai installed, leading to a module resolution failure.
+
+
+
+Fix:-
+Deactivated the Anaconda base environment:
+conda deactivate
+
+
+Activated the project-specific virtual environment:
+water_intake_tracker\Scripts\activate
+
+
+Ran Streamlit from the correct environment:
+streamlit run dashboard.py
+
+When working with multiple tools (FastAPI, Streamlit, LangChain), all services must be executed using the same Python environment to avoid dependency conflicts. Environment mismatches are a common cause of runtime errors in real-world projects.
+
+
+
+
+
+
+
+
