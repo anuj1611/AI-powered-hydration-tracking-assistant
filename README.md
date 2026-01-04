@@ -88,7 +88,4 @@ docker compose up --build
 
 ---
 
-## 👤 Author
-
-**Anuj Dhiraj Bhagat**  
-B.Tech Computer Science
+Happy Learning!😊
