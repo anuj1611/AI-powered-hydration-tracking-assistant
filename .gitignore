@@ -1,12 +1,12 @@
-# Virtual environments
-water_intake_tracker/
-venv/
-env/
-
 # Environment variables
 .env
 
-# Database files
+# Virtual environments
+venv/
+.venv/
+water_intake_tracker/
+
+# Database
 *.db
 
 # Logs
@@ -16,9 +16,9 @@ env/
 __pycache__/
 *.pyc
 
-# VS Code settings
-.vscode/
+# Docker leftovers (optional)
+*.pid
 
-# OS files
-.DS_Store
-Thumbs.db
+# IDE
+.vscode/
+.idea/
