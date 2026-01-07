@@ -1,7 +1,7 @@
 # Core LLM stack (modern LangChain)
-langchain>=0.2.0
-langchain-core>=0.2.0
-langchain-openai>=0.1.7
+langchain>=0.2.0    #  High-Level orchestration
+langchain-core>=0.2.0 # Purpose:-messages, prompts, abstraction
+langchain-openai>=0.1.7 # Open-AI integration
 openai>=1.14.1
 
 # Backend (API)
