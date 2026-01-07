@@ -1,31 +1,26 @@
-# Core LLM stack (modern LangChain)
-langchain>=0.2.0    #  High-Level orchestration
-langchain-core>=0.2.0 # Purpose:-messages, prompts, abstraction
-langchain-openai>=0.1.7 # Open-AI integration
+# Core LLM stack 
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-openai>=0.1.7
+langchain-community>=0.2.0
 openai>=1.14.1
-
 # Backend (API)
 fastapi==0.109.2
 uvicorn==0.27.0.post1
-
 # Database
 sqlalchemy==2.0.27
 sqlite-utils==3.35
-
 # Environment variables
 python-dotenv==1.0.1
-
-# Logging
+#Logging
 loguru==0.7.2
-
 # Scheduling
 apscheduler==3.10.4
-
 # CLI
 typer==0.9.0
-
 # UI
 streamlit==1.31.1
+pandas
 
 
 
