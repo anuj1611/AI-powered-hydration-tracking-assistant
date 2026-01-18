@@ -22,3 +22,7 @@ __pycache__/
 # IDE
 .vscode/
 .idea/
+
+# Project-specific local files
+Pictures/
+Notes.txt
