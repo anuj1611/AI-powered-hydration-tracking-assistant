@@ -1,4 +1,4 @@
-# 💧 AI-Powered Hydration Tracking Assistant
+# AI-Powered Hydration Tracking Assistant
 
 An end-to-end **AI-powered hydration tracking system** that allows users to log daily water intake, receive intelligent hydration feedback using an LLM, and visualize their intake history through a clean dashboard.
 
@@ -6,20 +6,20 @@ This project demonstrates **AI + Backend + DevOps** skills by integrating LangCh
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ Log daily water intake per user  
-- 🤖 AI-generated hydration analysis using OpenAI (via LangChain)  
-- 📊 Visualize intake history with charts  
-- 🗄️ Persistent storage using SQLite  
-- 🌐 REST API built with FastAPI  
-- 🖥️ Interactive dashboard built with Streamlit  
-- 🐳 Fully Dockerized (API + Dashboard)
-- 🔐 Secure handling of API keys using environment variables  
+- Log daily water intake per user  
+- AI-generated hydration analysis using OpenAI (via LangChain)  
+- Visualize intake history with charts  
+- Persistent storage using SQLite  
+- REST API built with FastAPI  
+- Interactive dashboard built with Streamlit  
+- Fully Dockerized (API + Dashboard)
+- Secure handling of API keys using environment variables  
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-----|-----------|
@@ -34,7 +34,7 @@ This project demonstrates **AI + Backend + DevOps** skills by integrating LangCh
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AI-Powered-Hydration-Tracking-Assistant/
@@ -56,20 +56,20 @@ AI-Powered-Hydration-Tracking-Assistant/
 
 ---
 
-## ⚙️ Local Setup (Without Docker)
+## Local Setup (Without Docker)
 
-### 1️⃣ Create Virtual Environment
+### 1️) Create Virtual Environment
 ```bash
 python -m venv water_intake_tracker
 water_intake_tracker\Scripts\activate
 ```
 
-### 2️⃣ Install Dependencies
+### 2️) Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Configure Environment Variables
+### 3️) Configure Environment Variables
 Create `.env` file:
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
@@ -77,7 +77,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ---
 
-## 🐳 Run with Docker (Recommended)
+## Run with Docker (Recommended)
 
 ```bash
 docker compose up --build
@@ -88,7 +88,4 @@ docker compose up --build
 
 ---
 
-## 👤 Author
-
-**Anuj Dhiraj Bhagat**  
-B.Tech Computer Science
+Happy Learning!😊

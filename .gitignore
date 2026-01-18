@@ -19,7 +19,7 @@ __pycache__/
 # Docker leftovers (optional)
 *.pid
 
-# IDE
+# IDE (Optional)
 .vscode/
 .idea/
 
