@@ -79,6 +79,17 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ## Run with Docker (Recommended)
 
+You can run this project locally using Docker without setting up a Python environment.
+
+### 1️) Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed.
+- An `OPENAI_API_KEY` in a `.env` file in the root directory.
+
+### 2️) Run using Docker Compose
+If you have the repository cloned, simply run:
+```bash
+docker-compose up
+```
 ```bash
 docker compose up --build
 ```
