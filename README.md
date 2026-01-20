@@ -91,10 +91,4 @@ If you have the repository cloned, simply run:
 docker-compose up
 docker compose up --build
 ```
-
-- FastAPI Docs → http://localhost:8000/docs
-- Streamlit Dashboard → http://localhost:8501
-
----
-
 Happy Learning!😊
