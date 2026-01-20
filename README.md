@@ -89,7 +89,6 @@ You can run this project locally using Docker without setting up a Python enviro
 If you have the repository cloned, simply run:
 ```bash
 docker-compose up
-```
 ```bash
 docker compose up --build
 ```
